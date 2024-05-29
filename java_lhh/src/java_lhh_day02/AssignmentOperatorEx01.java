@@ -7,7 +7,7 @@ public class AssignmentOperatorEx01 {
 
 		//복합 대입 연산자 예제
 		// A = A+B
-		// A += B
+		// A +=B
 		int num1 = 10, num2=20;
 		
 		num1= num1+num2;
