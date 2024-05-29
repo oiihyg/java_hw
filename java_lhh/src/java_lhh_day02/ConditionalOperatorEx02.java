@@ -9,9 +9,9 @@ public class ConditionalOperatorEx02 {
 		// num가 짝수이면 짝수 홀수이면 홀수로 출력
 		int num = 3;
 		
-		String resalt = (num % 2 == 0) ? "짝수" : "홀수";
+		String res = (num % 2 == 0) ? "짝수" : "홀수";
 		
-		System.out.println(resalt);
+		System.out.println(res);
 		
 	}
 
