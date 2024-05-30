@@ -13,7 +13,7 @@ public class IFEx03 {
 		
 		int num = scan.nextInt();
 		
-		if(num==0) {
+		if (num==0) {
 			System.out.println("0");
 		}else if(num>0){
 			System.out.println("양수");
