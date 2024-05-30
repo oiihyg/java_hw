@@ -31,6 +31,8 @@ public class IFExam03 {
 		else if(str.equals("*")) {
 			asd = num1*num2;
 			System.out.println(num1+str+num2+"="+asd);
+		}else {
+			System.out.println(str+" 산술연산자가 아닙니다.");
 		}
 		
 			
