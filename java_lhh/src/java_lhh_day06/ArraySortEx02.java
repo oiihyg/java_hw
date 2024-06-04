@@ -23,9 +23,9 @@ public class ArraySortEx02 {
 		System.out.println();
 		
 		// Arrays.sort(배열, 정렬방법) : 정렬 방법을 기준으로 배열을 정렬
-		Integer [] arr2 = {1,3,5,7,9,2,4,6,8,10};
-		Arrays.sort(arr2, Collections.reverseOrder());
-		System.out.print(Arrays.toString(arr2));
+		//Integer [] arr2 = {1,3,5,7,9,2,4,6,8,10};
+		//Arrays.sort(arr2, Collections.reverseOrder());
+		//System.out.print(Arrays.toString(arr2));
 		
 	}
 
