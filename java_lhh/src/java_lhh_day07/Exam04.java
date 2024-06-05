@@ -1,5 +1,7 @@
 package java_lhh_day07;
 
+import java.util.Scanner;
+
 public class Exam04 {
 
 	public static void main(String[] args) {
@@ -16,15 +18,12 @@ public class Exam04 {
 		 * 		-1 입력 시 메뉴로 돌아갑니다.
 		 * 2 => 단어 입력 (-1): abad
 		 * 		있는 단어입니다. / 없는 단어입니다.
+		 * 		-1 입력 시 메뉴로 돌아갑니다.
 		 * 3 => 프로그램을 종료합니다.
 		 * 4 => 잘못된 메뉴입니다.
 		 */
 		
-		
-		
-		
-		
-		
+			Scanner scan = new Scanner(System.in);
 
 	}
 
