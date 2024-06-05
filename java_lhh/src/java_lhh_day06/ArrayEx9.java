@@ -15,11 +15,22 @@ public class ArrayEx9 {
 		
 		// 입력 스캔 준비 완료! 
 		Scanner scan = new Scanner(System.in);
-		
 		// 문자열 입력 받기
-		
+		System.out.println("찾을 문자열 입력 : ");
+		String str = scan.next();
 		// 문자열이 있는지 없는지 확인하기
-		
+		boolean res = false;
+		for(String tmp : list) {
+			if(str.equals(tmp)) {
+				res = true;
+				break;
+			}
+		}
+		if(res) {
+			System.out.println(str+"가 있습니다.");
+		}else {
+			System.out.println(str+"가 없습니다.");
+		}
 		
 		
 	}
