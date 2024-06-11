@@ -28,3 +28,4 @@ replay_pid*
 .settings/
 
 java_lhh/.gitignore
+/bin/
