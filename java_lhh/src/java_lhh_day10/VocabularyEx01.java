@@ -50,14 +50,29 @@ public class VocabularyEx01 {
 				for(int i=0;i<wordCount;i++) {
 					list[i].print();
 				}
-				
 				break;
 			case 2:
+				// 단어 수정을 구현하기 위한 과정, 같은 단어가 있을 경우
+				// 어느 부분을 수정할지를 선택하는 걸 고려
 				updateWord(list, wordCount);
 				break;
-			case 3: System.out.println("단어 검색 기능 구현 중입니다.");
+			case 3:
+				// 검색할 단어를 입력
+				// 저장된 단어들 중에서 검색할 단어가 있는지 찾아서 있으면 출력
+				// 일치하는 단어가 없으면 없다고 출력
+				searchWord(list,wordCount);
 				break;
-			case 4: System.out.println("단어 삭제 기능 구현 중입니다.");
+			case 4:
+				// 삭제할 단어를 입력
+				// 삭제할 단어를 출력
+				// 삭제할 단어를 선택
+				// 잘못된 선택이면 안내 문구 출력
+				// 올바른 선택이면 삭제  
+				// 삭제하려는 번지 다음에 있는 단어들 부터 앞으로 한칸 씩 당기고 마지막 단어를 null로 변경
+				// 저장된 단어 중 앞으로 당긴 단어들을 번호를 1감소				
+				// 삭제할 위치부터 하나씩 당겨오게 하기 위해 복사  
+				// 삭제한 단어가 마지막 단어가 아닐 때 
+				wordCount = deletWord(list,wordCount);
 				break;
 			case 5: System.out.println("프로그램을 종료합니다.");
 				break;
@@ -68,7 +83,57 @@ public class VocabularyEx01 {
 		
 		
 	}
-	
+	/**
+	 * 기능 : 단어 삭제 기능
+	 * @param list
+	 * @param wordCount
+	 * @return
+	 */
+	public static int deletWord(Word[] list, int wordCount) {
+		// TODO Auto-generated method stub
+		wordCount = deletWord(list,wordCount);
+		// 삭제할 단어를 입력
+		System.out.print("단어 : ");
+		String word = scan.next();
+		// 삭제할 단어를 출력
+		printSearchWord(list, wordCount,word);
+		// 삭제할 단어를 선택
+		System.out.print("번호 입력 : ");
+		int num = scan.nextInt();
+		// 잘못된 선택이면 안내 문구 출력
+		if(!checkWord(list,word,num-1)) {
+			System.out.println("잘못된 번호를 선택했습니다.");
+			return wordCount;
+		}
+		// 올바른 선택이면 삭제  
+		// 삭제하려는 번지 다음에 있는 단어들 부터 앞으로 한칸 씩 당기고 마지막 단어를 null로 변경
+		// 저장된 단어 중 앞으로 당긴 단어들을 번호를 1감소				
+		// 삭제할 위치부터 하나씩 당겨오게 하기 위해 복사  
+		// 삭제한 단어가 마지막 단어가 아닐 때  
+		wordCount = deleteWordLsit(list, wordCount, num-1);
+		System.out.println("삭제가 완료됐습니다.");
+		for(int i=0;i<wordCount;i++) {
+			list[i].print();
+		}
+		return wordCount;
+	}
+
+	/**
+	 * 기능 : 단어를 입력받아 단어 리스트에 해당 단어가 있는지 출력하는 메소드
+	 * @param list 단어 리스트
+	 * @param wordCount 저장된 단어 개수 
+	 */
+	public static void searchWord(Word[] list, int wordCount) {
+		// TODO Auto-generated method stub
+		// 검색할 단어를 입력
+		System.out.print("단어 : ");
+		String word = scan.next(); // 공백 없는 단어를 입력 받기 위해 line이 아닌 그냥 next 사용
+		// 저장된 단어들 중에서 검색할 단어가 있는지 찾아서 있으면 출력
+		// 일치하는 단어가 없으면 없다고 출력
+		printSearchWord(list, wordCount, word);
+		
+	}
+
 	/**
 	 * 기능 : list에 index 번지에 있는 단어가 word인지 아닌지 알려주는 메소드 
 	 * @param list 단어 리스트
@@ -164,25 +229,10 @@ public class VocabularyEx01 {
 	}
 	
 	public static void updateWord(Word[] list, int wordCount) {
-		// 단어 수정을 구현하기 위한 과정, 같은 단어가 있을 경우
-		// 어느 부분을 수정할지를 선택하는 걸 고려
 		// 수정할 단어를 입력
 		System.out.print("단어 : ");
 		String word = scan.next();
-		int count = 0; // 일치하는 단어가 몇개 있는지 확인하는 변수
-		// 단어 리스트에 수정할 단어와 일치하는 단어들을 번호와 함께 출력
-		for(int i=0; i<wordCount; i++) {
-			if(list[i].getWord().equals(word)) {
-				System.out.print(i+1+". ");
-				list[i].print();
-				count++;
-			}
-		}
-		// 수정할 단어가 없으면 안내문구 출력 후 종료
-		if(count == 0) {
-			System.out.println("수정할 단어가 없습니다.");
-			return;
-		}
+		printSearchWord(list, wordCount, word);
 		// 수정할 단어를 선택
 		System.out.print("수정할 단어 번호 선택 : ");
 		int num = scan.nextInt();
@@ -198,6 +248,50 @@ public class VocabularyEx01 {
 		list[num-1].print();
 		// 단어리스트 정렬
 		wordSort(list,wordCount);
+	}
+	
+	/**
+	 * 기능 : 단어 리스트에 단어가 있으면 해당 단어를 출력하고 없으면 없다고 출력하는 메소드
+	 * @param list 단어 리스트
+	 * @param word 단어
+	 * @param wordCount 저장된 단어 수
+	 */
+	public static void printSearchWord(Word[] list, int wordCount, String word) {
+		int count = 0; // 일치하는 단어가 몇개 있는지 확인하는 변수
+		// 단어 리스트에 수정할 단어와 일치하는 단어들을 번호와 함께 출력
+		for(int i=0; i<wordCount; i++) {
+			if(list[i].getWord().equals(word)) {
+				System.out.print(i+1+". ");
+				list[i].print();
+				count++;
+			}
+		}
+		// 수정할 단어가 없으면 안내문구 출력 후 종료
+		if(count == 0) {
+			System.out.println("수정할 단어가 없습니다.");
+			return;
+		}
+	}
+	/**
+	 * 기능 : 배열의 index번지에 요소를 삭제하는 메소드
+	 * @param list 단어 리스트
+	 * @param wordCount 단어 수
+	 * @param index 삭제할 위치
+	 * @return 삭제된 후 단어 수
+	 */
+	public static int deleteWordLsit(Word[] list, int wordCount, int index) {
+		Word[] tmp = new Word[list.length]; // 임시 저장 배열 만들기
+		// 단어 리스트의 복사본 만들기
+		System.arraycopy(list, 0, tmp, 0, wordCount);
+		// 올바른 선택이면 삭제  
+		// 삭제하려는 번지 다음에 있는 단어들 부터 앞으로 한칸 씩 당기고 마지막 단어를 null로 변경
+		// 저장된 단어 중 앞으로 당긴 단어들을 번호를 1감소   
+		if(wordCount - index -1 != 0) {
+			System.arraycopy(tmp, index+1, list, index, wordCount - index-1);
+		}
+		wordCount--;
+		list[wordCount] = null;
+		return wordCount;
 	}
 	
 }
