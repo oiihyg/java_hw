@@ -34,6 +34,9 @@ public class RegexEx01 {
 		String regex4 = "^https?://";
 		System.out.println(str3+"는 http:// 또는 https://로 시작합니까? "+ Pattern.matches(regex4, str3));
 		
+		
+		
+		
 	}
 
 }
