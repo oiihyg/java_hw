@@ -38,27 +38,15 @@ public class PolymorphismEx01 {
 	}
 	
 }
-
-
 class Appliaces{
-	
 	boolean power;
-	String name = "가전제품";
-	
-	
+	String name = "가전제품";	
 }
-
-
 class TV extends Appliaces{
 	public TV() {
 		name = "TV";
 	}
-	
-	
-	
-	
 }
-
 class AirConditioner extends TV{
 	
 	public AirConditioner() {
