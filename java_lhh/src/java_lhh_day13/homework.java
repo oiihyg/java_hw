@@ -131,6 +131,7 @@ public class homework {
 			search(list,count);
 			break;
 		case 5:
+			System.out.println("플그램을 종료합니다.");
 			break;
 		default:
 			System.out.println("잘못된 메뉴입니다.");
@@ -230,7 +231,7 @@ public class homework {
 		if(index < 0 || index >= count) {
 			return false;
 		}
-		return list[index].getName().equals(name);
+		return list[index].getName().contains(name);
 	}
 
 	/**
