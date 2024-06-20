@@ -11,7 +11,7 @@ public class Ex03 {
 	public static Scanner scan = new Scanner(System.in);
 	public static void main(String[] args) {
 
-		// map을 사용해서 하는 법
+		// map을 사용해서 하는 법 
 		/*
 		 * UP Down 게임 예제를 구하세요
 		 * - 최대 5등까지 저장하며, 먼저 등록된 순으로 저장
