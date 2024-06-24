@@ -12,8 +12,8 @@ public class SynchronizedEx02 {
 		//Coustomer c1 = new Coustomer("홍길동", bankBook);
 		//Coustomer c2 = new Coustomer("홍킴동", bankBook);
 		
-		Thread t1 = new Thread(()->c1.deposit(10000));
-		Thread t2 = new Thread(()->c2.deposit(10000));
+		//Thread t1 = new Thread(()->c1.deposit(10000));
+		//Thread t2 = new Thread(()->c2.deposit(10000));
 		
 		
 	}
