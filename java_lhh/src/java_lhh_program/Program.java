@@ -15,6 +15,8 @@ public interface Program {
 	default void load(String fileName) {
 		System.out.println("불러오기 기능을 구현할 예정입니다.");
 	}
+
+
 	
 
 }
