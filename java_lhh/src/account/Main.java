@@ -59,7 +59,7 @@ package account;
 	 * 메뉴 선택 : 4
 	 * 2024-06-10 | 수입 | 월급 | 3000000 | 5월 월급
 	 */
-	
+	// dd
 public class Main {
 
 	public static void main(String[] args) {
