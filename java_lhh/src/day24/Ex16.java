@@ -13,14 +13,7 @@ import lombok.Data;
 public class Ex16 {
 
 	public static void main(String[] args) {
-		
-		/*
-		 * 1. 이름과 나이를 저장하고 관리하는 클래스를 생성하세요
-		 * 2. 이름이 홍길동, 나이는 21인 객체를 생성하세요
-		 * 3. src/day24/text16.txt에 2번에서 작성한 객체를 저장하세요
-		 * 	- ObjectStream을 활용
-		 */
-		Person p = new Person("홍길동", 21);
+		Person p = new Person("사과", 20);
 		
 		try(ObjectOutputStream oos = 
 				new ObjectOutputStream(new FileOutputStream("src/day24/text16.txt"))){
@@ -51,3 +44,10 @@ class Person implements Serializable{
 	private String name;
 	private int age;
 }
+
+/*
+ * 1. 이름과 나이를 저장하고 관리하는 클래스를 생성하세요
+ * 2. 이름이 홍길동, 나이는 21인 객체를 생성하세요
+ * 3. src/day24/text16.txt에 2번에서 작성한 객체를 저장하세요
+ * 	- ObjectStream을 활용
+ */
